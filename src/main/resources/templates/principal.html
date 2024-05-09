@@ -1,15 +1,42 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-	<head th:insert="~{layout/cabecalho}">
-		<title>Page Title</title>
-	</head>
-	<body>
-		<div th:insert="~{layout/menu}"></div>
-			<h1>This is a Heading</h1>
-			<p>This is a paragraph.</p>
+<html lang="en">
+	<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="script" href="index.js">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gerenciamento de Pedidos</title>
+  
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <h1>Gerenciamento de Pedidos</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Registrar</a></li>
+                    <li><a href="#">Consultar</a></li>
+                    <li><a href="#">Cardápio</a></li>
+                    <li><a href="#">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="conteudo">
+            <h2>Bem-vindo ao Gerenciador de Pedidos</h2>
+            <p>Aqui você pode gerenciar seus pedidos de forma fácil e rápida.</p>
+        </div>
+    </main>
+    <footer>
+        <div class="rodape">
+            <p>&copy; 2024 Sistema de Gerenciamento de Pedidos. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
 
-		<div th:insert="~{layout/rodape}"></div>
-		
-	</body>
+
 		
 </html>
