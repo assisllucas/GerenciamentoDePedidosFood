@@ -27,7 +27,7 @@ public class UsuarioEntity implements Serializable,UserDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_usuario")
-	private Long id_usuario;
+	private Long idUsuario;
 
 
 	@Column(name = "cpf") 
@@ -49,15 +49,15 @@ public class UsuarioEntity implements Serializable,UserDetails {
 	@ManyToMany
 	@JoinTable(name="usuario_permissao",
     joinColumns={@JoinColumn(name="usuario_id_usuario", referencedColumnName = "id_usuario")},
-    inverseJoinColumns={@JoinColumn(name="permissao_id_permissao", referencedColumnName = "id_permissao")})
+    inverseJoinColumns={@JoinColumn(name="permissao_id_permissao", referencedColumnName = "idpermissao")})
 	private List<PermissaoEntity> permissoes;	
     
 	
 	public Long getId_usuario() {
-		return id_usuario;
+		return idUsuario;
 	}
-	public void setId_usuario(Long id_usuario) {
-		this.id_usuario = id_usuario;
+	public void setId_usuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 	public String getCpf() {
 		return cpf;
@@ -130,6 +130,12 @@ public class UsuarioEntity implements Serializable,UserDetails {
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return true;
+	}
+	public Long getIdUsuario() {
+		return idUsuario;
+	}
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 
