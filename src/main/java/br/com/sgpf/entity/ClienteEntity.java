@@ -23,5 +23,27 @@ private static final long serialVersionUID = 1L;
 	@Column(name = "nome")
 	private String nome;
 	
+	@Column(name = "cep")
+	private String cep;
+	
+	@Column(name = "rua")
+	private String rua;
+	
+	@Column(name = "telefone")
+	private String telefone;
+	
+	@Column(name = "bairro")
+	private String bairro;
+	
+	@Column(name = "numero")
+	private String numero;
+	
+	
+	
+	
+	
+	
+
+	
 
 }
