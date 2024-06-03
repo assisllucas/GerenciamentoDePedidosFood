@@ -1,5 +1,5 @@
 package br.com.sgpf.repository;
 
-public class ProdutoRepository {
+public interface ProdutoRepository {
 
 }

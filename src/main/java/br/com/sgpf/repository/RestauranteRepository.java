@@ -1,5 +1,5 @@
 package br.com.sgpf.repository;
 
-public class RestauranteRepository {
+public interface RestauranteRepository {
 
 }

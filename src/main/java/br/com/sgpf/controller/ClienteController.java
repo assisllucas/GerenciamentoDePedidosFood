@@ -1,6 +1,7 @@
 package br.com.sgpf.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -11,17 +12,24 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.sgpf.entity.ClienteEntity;
 import br.com.sgpf.service.ClienteService;
+import br.com.sgpf.service.EntregaService;
 
+@Controller
 public class ClienteController {
+	
 	
 	@Autowired
 	private ClienteService clienteService;
 	
-	@GetMapping("/cliente")
-	public String docente(ModelMap model)
+	@Autowired
+	private EntregaService entregaService;
+	
+	@GetMapping("/cliente") // nome que eu quiser colocar
+	public String cliente(ModelMap model)
 	{
-		model.addAttribute("curso", clienteService.findAll());
-		return "cliente"; 
+		model.addAttribute("entrega", entregaService.findAll());
+		model.addAttribute("clientes", clienteService.findAll());
+		return "cliente"; //Caminho real do arquivo
 	}
 	@PostMapping("/salvar_cliente")
 	public ModelAndView save(
@@ -46,26 +54,5 @@ public class ClienteController {
 		return mv;
 	}
 	
-	@GetMapping("/excluir_cliente/{idCliente}")
-	public ModelAndView delete(ModelMap model,@PathVariable("idDocente") Long idCliente,RedirectAttributes atributes) throws Exception
-	{
-		ModelAndView mv = new ModelAndView("redirect:/docente");
-		model.addAttribute("mensagem",clienteService.deleteById(idCliente));
-		model.addAttribute("cursos",clienteService.findAll());
-		
-		return mv;
-		
-	}
-	@PostMapping("/alterar_cliente")
-	public ModelAndView update(
-			ModelMap model,
-			@ModelAttribute("clienteEntity") ClienteEntity clienteEntity,
-			RedirectAttributes atributes) throws Exception
 	
-	{
-		ModelAndView mv = new ModelAndView("redirect:/cliente");
-		atributes.addFlashAttribute("mensagem",clienteService.save(clienteEntity));
-		
-		return mv;
-}
 }
