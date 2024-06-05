@@ -63,7 +63,7 @@ public List<ClienteEntity> findAll() {
 	return clienteRepository.findAll();
 }
 @Override
-public ClienteEntity getOneByIdCliente(Long idCliente) {
+public ClienteEntity getOneByIdCliente(Long idCliente)throws Exception {
 	
 	return clienteRepository.getOneByIdCliente(idCliente);
 }

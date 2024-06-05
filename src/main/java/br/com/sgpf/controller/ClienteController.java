@@ -24,12 +24,13 @@ public class ClienteController {
 	@Autowired
 	private EntregaService entregaService;
 	
-	@GetMapping("/cliente") // nome que eu quiser colocar
+	@GetMapping("/registrarped") // nome que eu quiser colocar
 	public String cliente(ModelMap model)
 	{
-		model.addAttribute("entrega", entregaService.findAll());
+		
+		model.addAttribute("entregas", entregaService.findAll());
 		model.addAttribute("clientes", clienteService.findAll());
-		return "cliente"; //Caminho real do arquivo
+		return "registrarped"; //Caminho real do arquivo
 	}
 	@PostMapping("/salvar_cliente")
 	public ModelAndView save(
@@ -38,7 +39,7 @@ public class ClienteController {
 			RedirectAttributes atributes) throws Exception 
 	{
 		
-			ModelAndView mv = new ModelAndView("redirect:/cliente");
+			ModelAndView mv = new ModelAndView("redirect:/registrarped");
 			atributes.addFlashAttribute("mensagem", clienteService.save(clienteEntity));
 			return mv;
 		
@@ -48,6 +49,7 @@ public class ClienteController {
 	{
 		
 		ModelAndView mv = new ModelAndView("alterar_Cliente");
+		model.addAttribute("entregas", entregaService.findAll());
 		model.addAttribute("idCliente", idCliente);
 		model.addAttribute("cliente", clienteService.getOneByIdCliente(idCliente));
 		

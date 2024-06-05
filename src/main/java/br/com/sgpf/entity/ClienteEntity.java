@@ -42,8 +42,9 @@ private static final long serialVersionUID = 1L;
 	private String numero;
 	
 	@OneToOne()
-	@JoinColumn(name = "restauranteid", referencedColumnName = "idrestaurante")
+	@JoinColumn(name = "entregaid", referencedColumnName = "identrega")
 	private EntregaEntity entrega;
+
 
 	public long getIdCliente() {
 		return idCliente;
@@ -101,17 +102,9 @@ private static final long serialVersionUID = 1L;
 		this.numero = numero;
 	}
 
-	public EntregaEntity getEntrega() {
-		return entrega;
-	}
-
-	public void setEntrega(EntregaEntity entrega) {
-		this.entrega = entrega;
-	}
-
 	@Override
 	public int hashCode() {
-		return Objects.hash(bairro, cep, entrega, idCliente, nome, numero, rua, telefone);
+		return Objects.hash(bairro, cep, idCliente, nome, numero, rua, telefone);
 	}
 
 	@Override
@@ -123,10 +116,12 @@ private static final long serialVersionUID = 1L;
 		if (getClass() != obj.getClass())
 			return false;
 		ClienteEntity other = (ClienteEntity) obj;
-		return Objects.equals(bairro, other.bairro) && Objects.equals(cep, other.cep)
-				&& Objects.equals(entrega, other.entrega) && idCliente == other.idCliente
+		return Objects.equals(bairro, other.bairro) && Objects.equals(cep, other.cep) && idCliente == other.idCliente
 				&& Objects.equals(nome, other.nome) && Objects.equals(numero, other.numero)
 				&& Objects.equals(rua, other.rua) && Objects.equals(telefone, other.telefone);
 	}
+	
+
+	
 	
 }

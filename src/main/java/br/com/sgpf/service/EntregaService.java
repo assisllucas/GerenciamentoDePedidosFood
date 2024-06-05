@@ -8,4 +8,8 @@ public interface EntregaService {
 	
 	List<EntregaEntity> findAll();
 
+	String save(EntregaEntity entregaEntity) throws Exception;
+
+	EntregaEntity getOneByIdEntrega(Long idEntrega) throws Exception;
+
 }
