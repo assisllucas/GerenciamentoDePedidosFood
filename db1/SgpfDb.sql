@@ -2,7 +2,7 @@ CREATE DATABASE  IF NOT EXISTS `sgpf` /*!40100 DEFAULT CHARACTER SET utf8mb4 COL
 USE `sgpf`;
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: sgpf
+-- Host: localhost    Database: sgpf
 -- ------------------------------------------------------
 -- Server version	8.0.36
 
@@ -31,7 +31,11 @@ CREATE TABLE `cliente` (
   `rua` varchar(255) NOT NULL,
   `telefone` varchar(45) NOT NULL,
   `bairro` varchar(100) NOT NULL,
-  PRIMARY KEY (`idcliente`)
+  `entregaid` int NOT NULL,
+  `numero` varchar(255) NOT NULL,
+  PRIMARY KEY (`idcliente`),
+  KEY `fk_cliete_entrega_idx` (`entregaid`),
+  CONSTRAINT `fk_cliete_entrega` FOREIGN KEY (`entregaid`) REFERENCES `cliente` (`idcliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -304,4 +308,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-02 22:25:11
+-- Dump completed on 2024-06-04 21:31:18
