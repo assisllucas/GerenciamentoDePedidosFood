@@ -11,7 +11,7 @@
 	<!-- Importa o menu padrão do sistema -->
 	<div th:insert="~{layout/menu}"></div>
 
-	<form name="salvar_cliente" class="form-horizontal" method="POST" th:action="@{/salvar_cliente}" th:object="$clienteEntity">
+	<form name="salvar_cliente" class="form-horizontal" method="POST" th:action="@{/salvar_cliente}" th:object="${clienteEntity}">
 		
 		<div class="container-fluid">
 			<h2>Cliente</h2>
