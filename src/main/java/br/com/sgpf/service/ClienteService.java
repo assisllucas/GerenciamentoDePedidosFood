@@ -11,5 +11,9 @@ public interface ClienteService {
 	ClienteEntity getOneByIdCliente (Long idCliente) throws Exception; 
 	
 	
+	//Começa a exclusão
+	String deleteById(Long idCliente) throws Exception;
+	//Termina a exclusão
+	
 
 }

@@ -96,6 +96,7 @@ public class UsuarioEntity implements Serializable,UserDetails {
 	public void setDataExpiracao(Date dataExpiracao) {
 		this.dataExpiracao = dataExpiracao;
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return (Collection<? extends GrantedAuthority>) this.permissoes;

@@ -17,10 +17,42 @@ public class ItemPedidoEntity implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idcliente")
-	private long idCliente;
+	@Column(name = "idItemPedido")
+	private long idItemPedido;
 	
 	@Column(name = "nome")
 	private String nome;
+	
+	@Column(name = "quantidade")
+	private String quantidade;
+
+	public long getIdItemPedido() {
+		return idItemPedido;
+	}
+
+	public void setIdItemPedido(long idItemPedido) {
+		this.idItemPedido = idItemPedido;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(String quantidade) {
+		this.quantidade = quantidade;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 
 }

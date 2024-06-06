@@ -55,6 +55,17 @@ public class ClienteController {
 		
 		return mv;
 	}
+	@GetMapping("/excluir_cliente/{idcliente}")
+	public ModelAndView delete(ModelMap model, @PathVariable("idcliente") Long idCliente, RedirectAttributes atributes) throws Exception 
+	{
+		ModelAndView mv = new ModelAndView("registrarped");
+		
 	
+		model.addAttribute("mensagem", clienteService.deleteById(idCliente));
+		model.addAttribute("clientes", clienteService.findAll());
+		
+		return mv;
+		//termina a exclusão
+	}
 	
 }

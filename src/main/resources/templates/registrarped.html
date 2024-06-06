@@ -65,7 +65,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="cliente : ${cliente}">
+					<tr th:each="cliente : ${clientes}">
 						<td th:text="${cliente.IdCliente}"></td>
 						<td th:text="${cliente.Nome + ' ' + cliente.telefone}"></td>
 						<td th:text="${cliente.telefone}"></td>
@@ -76,7 +76,7 @@
 						<!--Começa o excluir-->
 						<td>
 							<a class="delete btn btn-sm btn-danger"
-								th:href="@{excluir_cliente/{idCliente}(idCliente=${cliente.IdCliente})}"
+								th:href="@{excluir_cliente/{idcliente}(idcliente=${cliente.IdCliente})}"
 								onclick="if (confirm('Deseja realmente excluir o cliente?')){return true;}else{event.stopPropagation();event.preventDefault();};">
 								Excluir
 							</a>
