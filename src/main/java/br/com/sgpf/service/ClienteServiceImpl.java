@@ -67,5 +67,17 @@ public ClienteEntity getOneByIdCliente(Long idCliente)throws Exception {
 	
 	return clienteRepository.getOneByIdCliente(idCliente);
 }
+@Override
+public String deleteById(Long idCliente) throws Exception {
+	try {
+		
+	clienteRepository.deleteById(idCliente);
+	this.mensagem = "Cliente excluido com sucesso.";
+	
+	} catch (Exception e) {
+	throw new Exception(e.getMessage());	
+	}
+	return mensagem;
+}
 	
 	}
