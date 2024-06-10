@@ -44,14 +44,25 @@ public class ClienteController {
 			return mv;
 		
 	}
-	@GetMapping("/alterar_cliente/{idCliente}")
-	public ModelAndView update(ModelMap model,@PathVariable("idCliente") Long idCliente) throws Exception 
+	
+	@GetMapping("/alterar_cliente/{idcliente}")
+	public ModelAndView update(ModelMap model,@PathVariable("idcliente") Long idCliente) throws Exception
 	{
-		
-		ModelAndView mv = new ModelAndView("alterar_Cliente");
-		model.addAttribute("entregas", entregaService.findAll());
-		model.addAttribute("idCliente", idCliente);
+		ModelAndView mv = new ModelAndView("alterar_cliente");
+		model.addAttribute("idcliente",idCliente);		
 		model.addAttribute("cliente", clienteService.getOneByIdCliente(idCliente));
+		
+		return mv;
+	
+	}
+	@PostMapping("/alterar_cliente")
+	public ModelAndView update(
+			ModelMap model,
+			@ModelAttribute("clienteEntity") ClienteEntity clienteEntity,
+			RedirectAttributes atributes) throws Exception
+	{
+		ModelAndView mv = new ModelAndView("redirect:/registrarped");
+		atributes.addFlashAttribute("mensagem",clienteService.save(clienteEntity));
 		
 		return mv;
 	}
@@ -69,3 +80,5 @@ public class ClienteController {
 	}
 	
 }
+
+

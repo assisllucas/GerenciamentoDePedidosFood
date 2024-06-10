@@ -58,8 +58,11 @@
 					<tr>
 						<th>ID</th>
 						<th>Nome</th>
+						<th>Cep</th>
+						<th>Rua</th>
 						<th>Telefone</th>
 						<th>Bairro</th>
+						<th>Numero</th>
 						<th class="col-1"></th>
 						<th class="col-1"></th>
 					</tr>
@@ -67,11 +70,13 @@
 				<tbody>
 					<tr th:each="cliente : ${clientes}">
 						<td th:text="${cliente.IdCliente}"></td>
-						<td th:text="${cliente.Nome + ' ' + cliente.telefone}"></td>
+						<td th:text="${cliente.nome}"></td>
+						<td th:text="${cliente.cep}"></td>
+						<td th:text="${cliente.rua}"></td>
 						<td th:text="${cliente.telefone}"></td>
 						<td th:text="${cliente.bairro}"></td>
-						<td><a class="btn btn-sn btn-warning"
-								th:href="@{alterar_cliente/{idCliente}(idCliente=${cliente.IdCliente})}">Alterar</a>
+						<td th:text="${cliente.numero}"></td>
+								<td><a class="btn btn-sm btn-warning" th:href="@{alterar_cliente/{idCliente}(idCliente=${cliente.IdCliente})}">Alterar</a>
 						</td>
 						<!--Começa o excluir-->
 						<td>
