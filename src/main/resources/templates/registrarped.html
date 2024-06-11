@@ -10,7 +10,7 @@
 	
 	<!-- Importa o menu padrão do sistema -->
 	<div th:insert="~{layout/menu}"></div>
-
+	<div class="container">
 	<form name="salvar_cliente" class="form-horizontal" method="POST" th:action="@{/salvar_cliente}" th:object="${clienteEntity}">
 		
 		<div class="container-fluid">
@@ -95,8 +95,9 @@
 		</div>
 	</form>
 
-	<div th:insert="~{layout/rodape}"></div>
-
+	
+	</div>
 </body>
+<div th:insert="~{layout/rodape}"></div>
 
 </html>

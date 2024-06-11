@@ -29,15 +29,18 @@ public class SecSecurityConfig {
 	            auth -> auth.requestMatchers("/signin", "/signup").permitAll()
 	            .requestMatchers("/").hasAnyRole("administrador")		         
 	            .requestMatchers("/admin/**").hasRole("administrador")	
-	
+	            .requestMatchers("/login").permitAll()
+	            .requestMatchers("/img/*").permitAll()
 	            .anyRequest().authenticated()
 	           )
 	            .formLogin(formLogin -> formLogin	            		
 	                    .defaultSuccessUrl("/principal", true)
 	                    .permitAll()
+	                    .loginPage("/login")
 	            )
 	            .rememberMe(rememberMe -> rememberMe.key("AbcdEfghIjkl..."))
 	            .logout(logout -> logout.logoutUrl("/signout").permitAll());
+	    
 	 
 	 
 	    return http.build();

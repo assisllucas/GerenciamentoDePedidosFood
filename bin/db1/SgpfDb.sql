@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `sgpf` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `sgpf`;
--- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
 -- Host: localhost    Database: sgpf
 -- ------------------------------------------------------
--- Server version	8.0.33
+-- Server version	8.0.36
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -31,7 +31,11 @@ CREATE TABLE `cliente` (
   `rua` varchar(255) NOT NULL,
   `telefone` varchar(45) NOT NULL,
   `bairro` varchar(100) NOT NULL,
-  PRIMARY KEY (`idcliente`)
+  `entregaid` int NOT NULL,
+  `numero` varchar(255) NOT NULL,
+  PRIMARY KEY (`idcliente`),
+  KEY `fk_cliete_entrega_idx` (`entregaid`),
+  CONSTRAINT `fk_cliete_entrega` FOREIGN KEY (`entregaid`) REFERENCES `cliente` (`idcliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -42,6 +46,32 @@ CREATE TABLE `cliente` (
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `entrega`
+--
+
+DROP TABLE IF EXISTS `entrega`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `entrega` (
+  `identrega` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) DEFAULT NULL,
+  `restauranteid` int DEFAULT NULL,
+  PRIMARY KEY (`identrega`),
+  KEY `fk_entrega_restaurante_idx` (`restauranteid`),
+  CONSTRAINT `fk_entrega_restaurante` FOREIGN KEY (`restauranteid`) REFERENCES `restaurante` (`idRestaurante`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `entrega`
+--
+
+LOCK TABLES `entrega` WRITE;
+/*!40000 ALTER TABLE `entrega` DISABLE KEYS */;
+/*!40000 ALTER TABLE `entrega` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -278,4 +308,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-28 21:38:08
+-- Dump completed on 2024-06-04 21:31:18

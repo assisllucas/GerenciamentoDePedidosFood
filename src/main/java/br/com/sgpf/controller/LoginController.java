@@ -3,6 +3,7 @@ package br.com.sgpf.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
 @Controller
 public class LoginController {
 
@@ -15,5 +16,11 @@ public class LoginController {
 	public String home()
 	{
 		return "principal"; //caminho real do arquivo
+	}
+	@GetMapping("/login") //nome que eu quiser colocar
+	public String login()
+	{
+ 
+		return "login"; //caminho real do arquivo
 	}
 }
