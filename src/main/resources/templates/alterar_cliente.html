@@ -17,7 +17,7 @@
 <div class="container">
 <div class="alert alert-success" th:text="${mensagem}" th:if="${not #strings.isEmpty(mensagem)}"></div>
 
-<input class="form-control" type="hidden" maxlength="50" name="idcliente" th:value="${idCliente}" />	
+<input class="form-control" type="hidden" maxlength="50" name="IdCliente" id="IdCliente" th:value="${cliente.idCliente}" />	
 	
 <div class="mb-3">
   <label for="nome" class="form-label">Nome</label>
